@@ -1,21 +1,38 @@
-// Navigation.tsx
 import { Link } from "react-router";
 
 const Navigation = () => {
     return (
-        <nav className="flex justify-center space-x-8">
-            <Link
-                to="/"
-                className="px-6 py-3 rounded-lg font-medium text-gray-700 hover:text-blue-600 hover:bg-white transition-all duration-200 shadow-sm hover:shadow-md"
-            >
-                Home
-            </Link>
-            <Link
-                to="/dashboard"
-                className="px-6 py-3 rounded-lg font-medium text-gray-700 hover:text-blue-600 hover:bg-white transition-all duration-200 shadow-sm hover:shadow-md"
-            >
-                Dashboard
-            </Link>
+        <nav className="bg-white border-b border-slate-200 shadow-sm sticky top-0 z-50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex justify-between h-16">
+                    {/* Logo Area */}
+                    <div className="flex items-center">
+                        <span className="text-xl font-bold text-indigo-600">MyApp</span>
+                    </div>
+
+                    {/* Links */}
+                    <div className="flex items-center space-x-8">
+                        <Link
+                            to="/"
+                            className="text-slate-500 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+                        >
+                            Home
+                        </Link>
+                        <Link
+                            to="/dashboard"
+                            className="text-slate-500 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+                        >
+                            Dashboard
+                        </Link>
+                        <Link
+                            to="/login"
+                            className="bg-indigo-600 text-white hover:bg-indigo-700 px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 shadow-sm"
+                        >
+                            Log In
+                        </Link>
+                    </div>
+                </div>
+            </div>
         </nav>
     );
 };
