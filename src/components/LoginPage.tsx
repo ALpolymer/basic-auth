@@ -7,6 +7,7 @@ const LoginPage = () => {
     const {
         register,
         handleSubmit,
+        setError,
         formState: { errors, isSubmitting },
     } = useForm<UserData>();
 
@@ -14,8 +15,11 @@ const LoginPage = () => {
         try {
             const token = await fakeAuth(data)
             console.log("Login Successful",token)
+            localStorage.setItem("token", token)
         } catch (e) {
-            console.log("Login Failed", e);
+            setError("root", {
+                message: (e as Error).message,
+            })
         }
     }
 
@@ -67,7 +71,7 @@ const LoginPage = () => {
                         </div>
                     </div>
 
-                    <div>
+                    <div className="flex flex-col items-center justify-center gap-2">
                         <button
                             type="submit"
                             disabled={isSubmitting}
@@ -75,7 +79,9 @@ const LoginPage = () => {
                         >
                             {isSubmitting ? "Loading..." : "Submit"}
                         </button>
+                        {errors.root && (<p className="text-red-600 text-sm">{errors.root.message}</p>)}
                     </div>
+
                 </form>
             </div>
         </div>
