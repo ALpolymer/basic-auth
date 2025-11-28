@@ -1,7 +1,6 @@
-type UserData = {
-    email: string;
-    password: string;
-}
+import type {UserData} from "../types/types.ts";
+
+
 
 export const users: UserData[] = [
     {

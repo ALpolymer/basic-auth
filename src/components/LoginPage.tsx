@@ -1,18 +1,15 @@
 import {type SubmitHandler, useForm} from "react-hook-form";
+import type {UserData} from "../types/types.ts";
 
-type FormFields ={
-    email: string,
-    password: string,
-}
 
 const LoginPage = () => {
     const {
         register,
         handleSubmit,
         formState: { errors, isSubmitting },
-    } = useForm<FormFields>();
+    } = useForm<UserData>();
 
-    const onSubmit : SubmitHandler<FormFields> = async (data) => {
+    const onSubmit : SubmitHandler<UserData> = async (data) => {
         await new Promise(resolve => setTimeout(resolve, 1000));
         console.log(data);
     }
