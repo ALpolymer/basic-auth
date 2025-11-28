@@ -4,10 +4,11 @@ import Home from "./components/Home";
 import Dashboard from "./components/Dashboard.tsx";
 import NoMatch from "./components/NoMatch.tsx";
 import LoginPage from "./components/LoginPage.tsx";
+import {users} from "./data/users.ts";
 
 function App() {
 
-
+ localStorage.setItem("users", JSON.stringify(users));
   return (
     <>
         <Navigation />
