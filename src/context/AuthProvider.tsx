@@ -8,6 +8,7 @@ type AuthProviderProps = {
 }
 
  export const AuthProvider = ({children}:AuthProviderProps) => {
+
      const [token, setToken] = useState(() => {
          return localStorage.getItem("authToken") || "";
      });
@@ -36,6 +37,5 @@ type AuthProviderProps = {
     );
 };
 
-// export const useAuth = () => useContext(AuthContext);
 
 

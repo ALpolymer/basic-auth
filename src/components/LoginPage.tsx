@@ -1,9 +1,11 @@
 import {type SubmitHandler, useForm} from "react-hook-form";
+import {useNavigate} from "react-router";
 import type {UserData} from "../types/types.ts";
 import {useAuth} from "../context/useAuth.ts";
 
 
 const LoginPage = () => {
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
@@ -15,8 +17,8 @@ const LoginPage = () => {
 
     const onSubmit : SubmitHandler<UserData> = async (data) => {
         try {
-            const authToken = await onLogin(data)
-            console.log("Login Successful",authToken)
+            await onLogin(data)
+            navigate("/dashboard")
         } catch (e) {
             setError("root", {
                 message: (e as Error).message,

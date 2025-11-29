@@ -20,7 +20,6 @@ export const fakeAuth = (user: UserData): Promise<string> => {
         });
     }
 
-    console.log(user);
     const foundUser = fetchedUsers.find((u)=> u?.email === user?.email);
     if(!foundUser){
          return new Promise((_, reject) => {
@@ -33,7 +32,6 @@ export const fakeAuth = (user: UserData): Promise<string> => {
             setTimeout(() => reject(new Error("Wrong Password")), 1000);
         })
     }
-    console.log("foundUserPassword:",foundUserPassword);
     if (foundUser && foundUserPassword) {
         return new Promise((resolve) => {
             setTimeout(() => resolve("2342f2f1d131rf12"), 1000);
