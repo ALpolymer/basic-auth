@@ -1,6 +1,6 @@
 import {type SubmitHandler, useForm} from "react-hook-form";
 import type {UserData} from "../types/types.ts";
-import {fakeAuth} from "../utils/fakeAuth.ts";
+import {useAuth} from "../context/useAuth.ts";
 
 
 const LoginPage = () => {
@@ -11,11 +11,12 @@ const LoginPage = () => {
         formState: { errors, isSubmitting },
     } = useForm<UserData>();
 
+    const {onLogin} = useAuth()
+
     const onSubmit : SubmitHandler<UserData> = async (data) => {
         try {
-            const authToken = await fakeAuth(data)
+            const authToken = await onLogin(data)
             console.log("Login Successful",authToken)
-            localStorage.setItem("token", authToken)
         } catch (e) {
             setError("root", {
                 message: (e as Error).message,
