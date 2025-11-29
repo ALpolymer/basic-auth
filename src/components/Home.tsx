@@ -1,6 +1,9 @@
 import { Link } from "react-router";
 
+
+
 const Home = () => {
+
     return (
         <div className="relative overflow-hidden bg-white">
             <div className="max-w-7xl mx-auto">
