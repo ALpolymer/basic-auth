@@ -1,9 +1,6 @@
 import type {UserData} from "../types/types.ts";
 
-// export const fakeAuth = (user: UserData): Promise<string> =>
-//     new Promise((resolve ) => {
-//     setTimeout(() => resolve("2342f2f1d131rf12"), 250);
-// });
+
 
 const fetcher = (key: string) :UserData[] =>{
     const data = localStorage.getItem(key);

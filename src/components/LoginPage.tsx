@@ -13,9 +13,9 @@ const LoginPage = () => {
 
     const onSubmit : SubmitHandler<UserData> = async (data) => {
         try {
-            const token = await fakeAuth(data)
-            console.log("Login Successful",token)
-            localStorage.setItem("token", token)
+            const authToken = await fakeAuth(data)
+            console.log("Login Successful",authToken)
+            localStorage.setItem("token", authToken)
         } catch (e) {
             setError("root", {
                 message: (e as Error).message,
