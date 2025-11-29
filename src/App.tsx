@@ -6,6 +6,7 @@ import NoMatch from "./components/NoMatch.tsx";
 import LoginPage from "./components/LoginPage.tsx";
 import {users} from "./data/users.ts";
 import {AuthProvider} from "./context/AuthProvider.tsx";
+import ProtectedRoute from "./components/ProtectedRoute.tsx";
 
 function App() {
 
@@ -15,7 +16,14 @@ function App() {
         <Navigation />
         <Routes>
             <Route index element={<Home/>}/>
-            <Route path="dashboard" element={<Dashboard/>}/>
+            <Route
+                path="dashboard"
+                element={
+                    <ProtectedRoute>
+                        <Dashboard />
+                    </ProtectedRoute>
+                }
+            />
             <Route path="login" element={<LoginPage/>}/>
             <Route path="*" element={<NoMatch/>}/>
         </Routes>
